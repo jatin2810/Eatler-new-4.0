@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block body %}
+<link href="{% static 'extra/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+<div class="jumbotron">
+
+  <h1>THIS IS RESTAURANT LIST PAGE :</h1>
+  <h1>HERE ARE THE LIST OF THE SCHOOL</h1>
+
+  <ol>
+    {% for restaurant in restaurants%}
+    <h2><li>
+      <a href="{{restaurant.id}}">{{restaurant.name}}</a>
+    </li> </h2>
+    {% endfor %}
+  </ol>
+
+  <a class="btn btn-success" href="{% url "main:create_restaurant"%}">Add Restaurant</a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+<div class="container">
+  <p>Delete {{restaurant.name}}?</p>
+  <form method="post">
+    {%csrf_token%}
+    <input type="submit" class="btn btn-danger" value="Delete">
+    <a href="{%url "main:list_restaurant"%}">Cancel</a>
+  </form>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="jumbotron">
+  <h2>Welcome to the Restaurant Detail Page</h2>
+  <h2>Details of Restaurant are given below :</h2>
+  <p>Name : {{restaurant_details.name}}</p>
+  <p>address :{{restaurant_details.address}}</p>
+  <p>City : {{restaurant_details.city}}</p>
+  <div class="container">
+    <p> <a class="btn btn-warning" href="{%url "main:update_restaurant" pk=restaurant_details.pk%}">Update Restaurant Details</a> </p>
+  </div>
+
+  <div class="container">
+    <p> <a class="btn btn-danger" href="{%url "main:delete_restaurant" pk=restaurant_details.pk%}">Delete Restaurant</a> </p>
+  </div>
+
+
+
+
+  <div class="container">
+    <p> <a class="btn btn-warning" href="{%url "main:create_product" pk=restaurant_details.pk %}">Add Product</a> </p>
+  </div>
+
+  <h2>List of products in the restaurant :</h2>
+  {%for product in restaurant_details.products.all%}
+  <p>{{product.name}} and its price is {{product.price}}</p>
+  <div class="image">
+
+    <img src="/media/{{ product.photo}}" alt="NA">
+  </div>
+  <div class="container">
+    <p> <a class="btn btn-warning" href="{%url  "main:update_product" pk=product.pk   %}">Update Product</a> </p>
+  </div>
+
+  <div class="container">
+    <p> <a class="btn btn-danger" href="{%url  "main:delete_product" pk=product.pk   %}">Delete Product</a> </p>
+  </div>
+  {%endfor%}
+
+
+
+
+</div>

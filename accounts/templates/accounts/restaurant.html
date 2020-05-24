@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Eatler</title>
+      <link href="{% static 'extra/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'css/restaurant.css' %}" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{% url "main:homepage"%}">Eatler</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url "main:homepage"%}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "main:list_restaurant" %}">Restaurant</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Delivery Agents</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "accounts:logout" %}">Logout</a>
+          </li>
+
+        </ul>
+
+      </div>
+</nav>
+
+
+<div class="card-group container">
+          <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+          <div class="card-header">Header</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+
+      <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Secondary card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Success card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+
+</div>
+
+  <div class="container">
+    <h2>ALl products</h2>
+  </div>
+
+
+
+
+  </body>
+</html>
