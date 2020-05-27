@@ -1,41 +1,90 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block body %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<style>
+    .container{
+    margin-top:8%;
+    margin-left:8%;
+    }
+    .lob:hover{
+    -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    -box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75)
+}
+</style>
+<script>
+    $(document).ready(function(){
+    $('.col-4-lg'):hover{
+    function(){
+    $(this).animate({
+    marginTop:"-=1%",
+    },200);
+    },
+    function(){
+    $(this).animate({
+    marginTop:"0%"
+    },200);
+    }
+    );
+    });
+</script>
+<link href="{% static 'extra/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 <div class="jumbotron">
-  <h2>Welcome to the Restaurant Detail Page</h2>
-  <h2>Details of Restaurant are given below :</h2>
-  <p>Name : {{restaurant_details.name}}</p>
-  <p>address :{{restaurant_details.address}}</p>
-  <p>City : {{restaurant_details.city}}</p>
-  <div class="container">
-    <p> <a class="btn btn-warning" href="{%url "main:update_restaurant" pk=restaurant_details.pk%}">Update Restaurant Details</a> </p>
-  </div>
+    <h4 style="font-size: 2.5rem;" class="white">Welcome to {{restaurant_details.name}} Restaurant</h4>
 
-  <div class="container">
+  <div class="row">
+
+
+    <div class="card mb-3 col-md-6 mx-3" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-4-lg">
+          <div class="card-body">
+              <p><b>Name : {{restaurant_details.name}}</b></p>
+              <p><b>Address :{{restaurant_details.address}}</b></p>
+              <p><b>City : {{restaurant_details.city}}</b></p>
+
+            <p> <a class="btn btn-warning" href="{%url "main:update_restaurant" pk=restaurant_details.pk%}">Update Restaurant Details</a> </p>
+
+
     <p> <a class="btn btn-danger" href="{%url "main:delete_restaurant" pk=restaurant_details.pk%}">Delete Restaurant</a> </p>
+
+    <p> <a class="btn btn-info" href="{%url "main:create_product" pk=restaurant_details.pk %}">Add Product</a> </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-
-
-  <div class="container">
-    <p> <a class="btn btn-warning" href="{%url "main:create_product" pk=restaurant_details.pk %}">Add Product</a> </p>
-  </div>
-
-  <h2>List of products in the restaurant :</h2>
+  <h4 style="font-size: 2.5rem;" class="white">List of products in the restaurant :</h4>
   {%for product in restaurant_details.products.all%}
-  <p>{{product.name}} and its price is {{product.price}}</p>
-  <div class="image">
+   <div class="container">
+    <div class="product-top" >
+      <div class="col-4-lg ml-3">
+       <div class="card lob" style="width:18rem;">
+          <div class="card-body">
+            <p><b><h4>{{product.name}}</h4>and its price is ${{product.price}}</b></p>
 
-    <img src="/media/{{ product.photo}}" alt="NA">
-  </div>
-  <div class="container">
-    <p> <a class="btn btn-warning" href="{%url  "main:update_product" pk=product.pk   %}">Update Product</a> </p>
-  </div>
+              <div class="image">
+                <img src="/media/{{ product.photo}}" class="card-img" alt="Responsive image">
+              </div>
+              <p><b>{{product.description}}</b></p>
+            <p></p>
 
-  <div class="container">
-    <p> <a class="btn btn-danger" href="{%url  "main:delete_product" pk=product.pk   %}">Delete Product</a> </p>
-  </div>
-  {%endfor%}
+              <div class="container">
+                <p> <a class="btn btn-warning" href="{%url  "main:update_product" pk=product.pk   %}">Update Product</a> </p>
+              </div>
 
-
-
-
+              <div class="container">
+                <p> <a class="btn btn-danger" href="{%url  "main:delete_product" pk=product.pk   %}">Delete Product</a> </p>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+   </div>
+              {%endfor%}
 </div>
+  {% endblock%}
+

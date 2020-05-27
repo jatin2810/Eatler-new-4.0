@@ -1,9 +1,49 @@
-<div class="container">
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="css/restaurant.css">
+<style>
+    .bg{
+    background:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80')no-repeat;
+    height: 100vh;
+     width:  100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    }
+      .form-container{
+    position absolute;
+    top:15vh;
+    background:#ffc56e !important;
+    padding:30px;
+    border-radius:10px;
+    box-shadow: 0px 0px 10px 0px #000;
+    }
+    @media only screen and (max-width:1050px){
+    .bg{
+    background-size:300%;
+    }
+    }
+  </style>
+
+<div class="jumbotron bg">
+<section class="container-fluid">
+    <section class="row justify-content-center">
+        <section class="col-12 col-sm-10 col-md-8 col-lg-4">
+    <form class="form-container">
+
   <p>Delete {{restaurant.name}}?</p>
   <form method="post">
     {%csrf_token%}
     <input type="submit" class="btn btn-danger" value="Delete">
     <a href="{%url "main:list_restaurant"%}">Cancel</a>
   </form>
-
+    </form>
+        </section>
+    </section>
+</section>
 </div>
+ {% endblock %}
+

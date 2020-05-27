@@ -1,15 +1,51 @@
-<div class="jumbotron">
+{% extends "main/base.html" %}
+{% load static %}
 
-  <h2>
+{% block body %}
+<link rel="stylesheet" type="text/css" href="css/restaurant.css">
+<style>
+    .bg{
+    background:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80')no-repeat;
+    width:100%
+    height:100vh;
+    background-size:100%;
+    }
+    .form-container{
+    position absolute;
+    top:15vh;
+    background:#ffc56e !important;
+    padding:30px;
+    border-radius:10px;
+    box-shadow: 0px 0px 10px 0px #000;
+    }
+    @media only screen and (max-width:1050px){
+    .bg{
+    background-size:300%;
+    }
+ }
+  </style>
+<div class="jumbotron bg">
+<section class="container-fluid">
+    <section class="row justify-content-center">
+        <section class="col-12 col-sm-10 col-md-8 col-lg-4">
+    <form class="form-container">
+    <h2>
     {%if not form.instance.pk%}
     Add Restaurant
     {%else%}
     Update Restaurant
     {%endif%}
   </h2>
-  <form  method="post" enctype="multipart/form-data">
+  <form  style="text-align:center;  justify-content:center; align-items:center font-weight:bold" method="post" enctype="multipart/form-data">
+      <div class="form-group">
     {%csrf_token%}
-    {{form.as_p}}
+    {{form.as_ul}}
     <input type="submit" class="btn btn-primary"  value="submit">
+      </div>
   </form>
+    </form>
+        </section>
+    </section>
+</section>
+{% endblock %}
 </div>

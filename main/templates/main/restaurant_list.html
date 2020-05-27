@@ -5,20 +5,33 @@
 <link href="{% static 'extra/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
 <div class="jumbotron">
-
-  <h1>THIS IS RESTAURANT LIST PAGE :</h1>
-  <h1>HERE ARE THE LIST OF THE SCHOOL</h1>
+  <h2 class="mt-3 mb-4">List Of Restaurants</h2>
 
   <ol>
+    <div class="row">
     {% for restaurant in restaurants%}
-    <h2><li>
-      <a href="{{restaurant.id}}">{{restaurant.name}}</a>
-    </li> </h2>
+    <div class="container">
+      <div class="card mb-3 col-sm-6" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+           <p></p>
+          <img src="/media/{{restaurant.photo}}" class="card-img" alt="Responsive image">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{restaurant.name}}</h5>
+            <h5 class="card-title">...</h5>
+            <p class="card-text">{{restaurant.description}}</p>
+
+              <a class="btn btn-success" href="{{restaurant.id}}">Visit</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
     {% endfor %}
+    </div>
   </ol>
-
-  <a class="btn btn-success" href="{% url "main:create_restaurant"%}">Add Restaurant</a>
-
+  <a class="btn btn-success"  href="{% url "main:create_restaurant"%}">Add Restaurant</a>
 </div>
-
 {% endblock %}

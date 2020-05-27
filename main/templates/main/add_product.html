@@ -5,11 +5,14 @@
     <title></title>
   </head>
   <body>
+  <div class="jumbotron">
+    <form class="form-container">
     <form action="{% url "main:add_product"%}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{product_form.as_p}}
       <input type="submit"  value="Add">
     </form>
-
+                </form>
+  </div>
   </body>
 </html>

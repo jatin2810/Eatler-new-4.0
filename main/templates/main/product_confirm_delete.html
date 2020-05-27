@@ -1,9 +1,58 @@
-<div class="container">
-  <p>Delete {{product.name}}?</p>
-  <form method="post">
-    {%csrf_token%}
-    <input type="submit" class="btn btn-danger" value="Delete">
-    <a href="{%url "main:detail_restaurant" pk=product.restaurant.pk%}">Cancel</a>
-  </form>
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="css/restaurant.css">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+    .bg{
+    background:url('https://en.freejpg.com.ar/asset/900/42/425e/F100006474.jpg')no-repeat;
+     height: 100vh;
+     width:  100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    }
+    .form-container{
+    position absolute;
+    top:15vh;
+    background:#ffc56e !important;
+    padding:30px;
+    border-radius:10px;
+    box-shadow: 0px 0px 10px 0px #000;
+    }
+    @media only screen and (max-width:1050px){
+    .bg{
+    background-size:300%;
+    }
+    }
+
+  </style>
+<div class="bg">
+   <section class="container-fluid">
+    <section class="row justify-content-center">
+        <section class="col-md-4 col-md-offset-4">
+          <div class="form-container" >
+
+          <p><b>Delete {{product.name}}?</b></p>
+          <form method="post" >
+            {%csrf_token%}
+            <input type="submit" class="btn btn-danger" value="Delete">
+            <a href="{%url "main:detail_restaurant" pk=product.restaurant.pk%}">Cancel</a>
+          </form>
+          </div>
+        </section>
+    </section>
+   </section>
+
 
 </div>
+
+ {% endblock %}
+
+
