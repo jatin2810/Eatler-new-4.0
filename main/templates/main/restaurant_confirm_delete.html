@@ -16,7 +16,7 @@
       .form-container{
     position absolute;
     top:15vh;
-    background:#ffc56e !important;
+    background:#f78e05 !important;
     padding:30px;
     border-radius:10px;
     box-shadow: 0px 0px 10px 0px #000;
@@ -32,15 +32,15 @@
 <section class="container-fluid">
     <section class="row justify-content-center">
         <section class="col-12 col-sm-10 col-md-8 col-lg-4">
-    <form class="form-container">
+            <form class="form-container">
 
-  <p>Delete {{restaurant.name}}?</p>
-  <form method="post">
-    {%csrf_token%}
-    <input type="submit" class="btn btn-danger" value="Delete">
-    <a href="{%url "main:list_restaurant"%}">Cancel</a>
-  </form>
-    </form>
+                <p>Delete {{restaurant.name}}?</p>
+                <form method="post">
+                  {%csrf_token%}
+                  <input type="submit" class="btn btn-danger" value="Delete">
+                  <a href="{%url "main:list_restaurant"%}">Cancel</a>
+                </form>
+            </form>
         </section>
     </section>
 </section>

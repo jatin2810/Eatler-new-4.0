@@ -58,8 +58,9 @@
     </div>
   </div>
   <h4 style="font-size: 2.5rem;" class="white">List of products in the restaurant :</h4>
+    <div class="card-group">
   {%for product in restaurant_details.products.all%}
-   <div class="container">
+   <div class="row menu-container">
     <div class="product-top" >
       <div class="col-4-lg ml-3">
        <div class="card lob" style="width:18rem;">
@@ -85,6 +86,7 @@
     </div>
    </div>
               {%endfor%}
+    </div>
 </div>
   {% endblock%}
 

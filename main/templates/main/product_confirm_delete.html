@@ -39,12 +39,12 @@ body, html {
         <section class="col-md-4 col-md-offset-4">
           <div class="form-container" >
 
-          <p><b>Delete {{product.name}}?</b></p>
-          <form method="post" >
-            {%csrf_token%}
-            <input type="submit" class="btn btn-danger" value="Delete">
-            <a href="{%url "main:detail_restaurant" pk=product.restaurant.pk%}">Cancel</a>
-          </form>
+              <p><b>Delete {{product.name}}?</b></p>
+              <form method="post" >
+                {%csrf_token%}
+                <input type="submit" class="btn btn-danger" value="Delete">
+                <a href="{%url "main:detail_restaurant" pk=product.restaurant.pk%}">Cancel</a>
+              </form>
           </div>
         </section>
     </section>
